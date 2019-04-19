@@ -19,20 +19,26 @@ function formatTimestamp(timestamp) {
   return new Date(timestamp).toUTCString();
 }
 
+function domCreateNoteSelector(note, selectedNote) {
+  var $noteSelector = $(
+    '<div class="note-selector' +
+      (note === selectedNote ? " active" : "") +
+      '">' +
+      '<p class="note-selector-title">' +
+      formatTitle(note.body) +
+      "</p>" +
+      '<p class="note-selector-timestamp">' +
+      formatTimestamp(note.timestamp) +
+      "</p>" +
+      "</div>"
+  );
+  $noteSelector.data(note);
+  return $noteSelector;
+}
+
 function domCreateNoteSelectors(notes, selectedNote) {
   transformNotes(notes).forEach(function(note) {
-    var $noteSelector = $(
-      '<div class="note-selector' +
-        (note === selectedNote ? " active" : "") +
-        '">' +
-        '<p class="note-selector-title">' +
-        formatTitle(note.body) +
-        "</p>" +
-        '<p class="note-selector-timestamp">' +
-        formatTimestamp(note.timestamp) +
-        "</p>" +
-        "</div>"
-    );
+    var $noteSelector = domCreateNoteSelector(note, selectedNote);
     $noteSelector.data(note);
     $(".note-selectors").append($noteSelector);
   });
@@ -49,7 +55,7 @@ $(".note-selectors").on("click", ".note-selector", function() {
   domUpdateNoteEditor($(this).data());
 });
 
-$(".note-editor-input").on("input propertychange", function(event) {
+$(".note-editor-input").on("input property change", function(event) {
   // Update the note data
   var body = $(this).val();
   console.log(body);
@@ -66,6 +72,18 @@ $(".note-editor-input").on("input propertychange", function(event) {
   // Update the DOM note selectors sorting order
   var $active = $(".note-selector.active").detach();
   $(".note-selectors").prepend($active);
+});
+
+$(".toolbar-button-new").on("click", function() {
+  $(".note-selector").removeClass("active");
+  var note = {
+    id: Date.now(),
+    body: "",
+    timestamp: Date.now()
+  };
+  var $noteSelector = domCreateNoteSelector(note, note);
+  $(".note-selectors").prepend($noteSelector);
+  domUpdateNoteEditor(note);
 });
 
 var notes = [

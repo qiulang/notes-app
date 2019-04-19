@@ -16,3 +16,9 @@ Next we’ll bind the `<textarea>` to the note data. Each time the user changes 
 - The sort order of the note selectors (the current one should be on top)
 
 This is where we start to see some difficulties with jQuery — while the DOM manipulation code itself is fairly straightforward, it becomes more and more complicated to remember the different parts of the DOM that need to be updated with each change.
+
+
+
+### Create a new note with a button
+
+Now let’s implement the ability to create a new note. Clicking on the “New” button should create a new note (new id, no body, current timestamp). The new note should become the currently selected note and appear at the top of the list of note selectors. 
