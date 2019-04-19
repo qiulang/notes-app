@@ -32,3 +32,18 @@ The delete button is in theory easy enough to implement — add an event lis
 
 
 We’re getting into the territory of what is known as “jQuery spaghetti” — the delete note feature requires writing code in both the delete button event listener as well as the new button event listener, which is highly unintuitive. As more features get added to the app, these types of unrelated dependencies start cropping up in more and more places, making it harder to reason about the code.
+
+
+
+### Filter notes on search input
+
+- Show the note editor in case it’s hidden
+- Get the search text the user entered
+- Loop through each note selector and show or hide it based on whether or not the note’s body (in the DOM data-body attribute) matches the user’s search text
+- Select a new note if necessary
+
+
+
+### Conclusion
+
+I’ve noted in a couple of places where the jQuery code is starting to get hard to manage. Still, I would consider this app to be reasonably simple, so jQuery works well enough here, especially if you’re diligent about extracting reusable functions. There’s a certain beauty to jQuery where the code closely matches what you’re trying to accomplish in terms of DOM manipulation. However, it does get harder and harder to keep track of how the code is working as you add more features.
