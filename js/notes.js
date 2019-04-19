@@ -7,12 +7,14 @@ var app = new Vue({
       { id: 3, body: "This is a third test", timestamp: Date.now() }
     ]
   },
-  methods: {
-    transformNotes: function(notes) {
-      return notes.slice().sort(function(a, b) {
+  computed: {
+    transformedNotes: function() {
+      return this.notes.slice().sort(function(a, b) {
         return b.timestamp - a.timestamp;
       });
-    },
+    }
+  },
+  filters: {
     formatTitle: function(body) {
       var maxLength = 20;
       if (body.length > maxLength) {
@@ -26,5 +28,6 @@ var app = new Vue({
     formatTimestamp: function(timestamp) {
       return new Date(timestamp).toUTCString();
     }
-  }
+  },
+  methods: {}
 });
