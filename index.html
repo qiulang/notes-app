@@ -16,9 +16,9 @@
     </div>
     <div class="note-container">
         <div class="note-selectors">
-            <div class="note-selector" v-for="note in notes">
-              <p class="note-selector-title">{{ note.body }}</p>
-              <p class="note-selector-timestamp">{{ note.timestamp }}</p>
+            <div class="note-selector" v-for="note in transformNotes(notes)">
+              <p class="note-selector-title">{{ formatTitle(note.body) }}</p>
+              <p class="note-selector-timestamp">{{ formatTimestamp(note.timestamp) }}</p>
             </div>
           </div>
       <div class="note-editor">
