@@ -49,6 +49,25 @@ $(".note-selectors").on("click", ".note-selector", function() {
   domUpdateNoteEditor($(this).data());
 });
 
+$(".note-editor-input").on("input propertychange", function(event) {
+  // Update the note data
+  var body = $(this).val();
+  console.log(body);
+  var timestamp = Date.now();
+  $(".note-selector.active").data("body", body);
+  $(".note-selector.active").data("timestamp", timestamp);
+  // Update the DOM note editor timestamp
+  $(".note-editor-info").html(formatTimestamp(timestamp));
+  // Update the DOM currently selected note selector
+  $(".note-selector.active .note-selector-title").html(formatTitle(body));
+  $(".note-selector.active .note-selector-timestamp").html(
+    formatTimestamp(timestamp)
+  );
+  // Update the DOM note selectors sorting order
+  var $active = $(".note-selector.active").detach();
+  $(".note-selectors").prepend($active);
+});
+
 var notes = [
   { id: 1, body: "This is a first test", timestamp: Date.now() },
   { id: 2, body: "This is a second test", timestamp: Date.now() },
