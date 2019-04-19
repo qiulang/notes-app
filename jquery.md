@@ -22,3 +22,13 @@ This is where we start to see some difficulties with jQuery — while the DO
 ### Create a new note with a button
 
 Now let’s implement the ability to create a new note. Clicking on the “New” button should create a new note (new id, no body, current timestamp). The new note should become the currently selected note and appear at the top of the list of note selectors. 
+
+
+
+### Delete the selected note with a button
+
+The delete button is in theory easy enough to implement — add an event listener to the “Delete” button which removes the currently selected note selector (which is marked with the class `.active`) from the DOM.
+
+
+
+We’re getting into the territory of what is known as “jQuery spaghetti” — the delete note feature requires writing code in both the delete button event listener as well as the new button event listener, which is highly unintuitive. As more features get added to the app, these types of unrelated dependencies start cropping up in more and more places, making it harder to reason about the code.
