@@ -17,13 +17,10 @@ var app = new Vue({
     transformedNotes: function() {
       return this.notes
         .filter(
-          function(note) {
-            return (
-              note.body
-                .toLowerCase()
-                .indexOf(this.searchNoteText.toLowerCase()) !== -1
-            );
-          }.bind(this)
+          note =>
+            note.body
+              .toLowerCase()
+              .indexOf(this.searchNoteText.toLowerCase()) !== -1
         )
         .sort(function(a, b) {
           return b.timestamp - a.timestamp;
