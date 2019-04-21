@@ -29,8 +29,7 @@
             <p class="note-editor-info">
                 {{ selectedNote.timestamp | formatTimestamp }}
             </p>
-            <textarea class="note-editor-input">
-                {{ selectedNote.body }}
+            <textarea class="note-editor-input" v-model="selectedNote.body">
             </textarea>
         </div>
     </div>
