@@ -25,14 +25,14 @@
               <p class="note-selector-timestamp">{{ note.timestamp | formatTimestamp }}</p>
             </div>
           </div>
-      <div class="note-editor">
-        <p class="note-editor-info">Timestamp here...</p>
-        <textarea class="note-editor-input">
-          First note...
-          
-          Note text here...
-        </textarea>
-      </div>
+        <div class="note-editor">
+            <p class="note-editor-info">
+                {{ selectedNote.timestamp | formatTimestamp }}
+            </p>
+            <textarea class="note-editor-input">
+                {{ selectedNote.body }}
+            </textarea>
+        </div>
     </div>
   </div>
 </body>
