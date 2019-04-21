@@ -1,8 +1,11 @@
 <template>
   <div class="note-selectors">
-    <note-selector></note-selector>
-    <note-selector></note-selector>
-    <note-selector></note-selector>
+    <note-selector
+      v-for="note in notes"
+      v-bind:note="note"
+      v-bind:key="note.id"
+    >
+    </note-selector>
   </div>
 </template>
 
@@ -10,6 +13,7 @@
 import NoteSelector from './NoteSelector';
 export default {
   name: 'note-selectors',
+  props: ['notes'],
   components: {
     NoteSelector
   }

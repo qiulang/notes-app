@@ -1,6 +1,6 @@
 <template>
   <div class="note-container">
-    <note-selectors></note-selectors>
+    <note-selectors v-bind:notes="notes"></note-selectors>
     <note-editor></note-editor>
   </div>
 </template>
@@ -10,6 +10,7 @@ import NoteSelectors from './NoteSelectors';
 import NoteEditor from './NoteEditor';
 export default {
   name: 'note-container',
+  props: ['notes'],
   components: {
     NoteSelectors,
     NoteEditor

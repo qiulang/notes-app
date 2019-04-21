@@ -19,3 +19,10 @@
     └── <note-editor>
 ```
 
+
+
+Now that things are broken into components, we have to make some choices when it comes to storing and passing data. For the array of notes, it makes sense for the main `<App>` component to keep track of the notes and pass it down to its children. 
+
+
+
+There definitely is a price to pay for breaking things into components — maintaining strong boundaries means you must put in more effort to pass information across said boundaries. 

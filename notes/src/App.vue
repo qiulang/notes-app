@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <toolbar></toolbar>
-    <note-container></note-container>
+    <note-container v-bind:notes="notes"></note-container>
   </div>
 </template>
 
@@ -11,6 +11,15 @@ import NoteContainer from './components/NoteContainer';
 
 export default {
   name: 'app',
+  data: function() {
+    return {
+      notes: [
+        {id: 1, body: "This is a first test", timestamp: Date.now()},
+        {id: 2, body: "This is a second test", timestamp: Date.now()},
+        {id: 3, body: "This is a third test", timestamp: Date.now()}
+      ]
+    };
+  },
   components: {
     Toolbar,
     NoteContainer
