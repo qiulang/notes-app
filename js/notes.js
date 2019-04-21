@@ -76,6 +76,13 @@ var app = new Vue({
         this.selectedNote.timestamp = Date.now();
       },
       deep: true
+    },
+    searchNoteText: function() {
+      if (this.transformedNotes.length === 0) {
+        this.selectedNote = {};
+      } else if (this.transformedNotes.indexOf(this.selectedNote) === -1) {
+        this.selectedNote = this.transformedNotes[0];
+      }
     }
   }
 });
