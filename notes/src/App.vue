@@ -2,7 +2,6 @@
   <div id="app">
     <toolbar v-on:clickNew="createNote"
       v-on:clickDelete="deleteNote"
-      v-bind:searchNoteText="searchNoteText"
       v-on:inputSearchNoteText="updateSearch"
     >
     </toolbar>

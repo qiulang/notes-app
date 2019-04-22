@@ -65,3 +65,7 @@ v-on:click.native="selectNote(note)"
 
 
 
+### note 
+
+1. v-on:click.native ， customer 元素，比如 <note-selector 需要， 实际DOM元素 <button 不需要
+2. search文本不需要再通过App.vue 以prop回传给 toolbar
