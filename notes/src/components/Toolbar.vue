@@ -1,6 +1,6 @@
 <template>
   <div class="toolbar">
-    <button class="toolbar-button">New</button>
+    <button class="toolbar-button" v-on:click="clickNew">New</button>
     <button class="toolbar-button">Delete</button>
     <input class="toolbar-search" type="text" placeholder="Search...">
   </div>
@@ -8,7 +8,12 @@
 
 <script>
 export default {
-  name: 'toolbar'
+  name: 'toolbar',
+  methods: {
+    clickNew: function() {
+      this.$emit('clickNew');
+    }
+  }
 };
 </script>
 
