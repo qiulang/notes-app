@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <toolbar v-on:clickNew="createNote"></toolbar>
+    <toolbar v-on:clickNew="createNote"
+      v-on:clickDelete="deleteNote"
+    >
+    </toolbar>
     <note-container v-bind:notes="notes"
       v-bind:selectedNote="selectedNote"
       v-on:selectNote="selectNote"
@@ -43,6 +46,17 @@ export default {
       };
       this.notes.push(newNote);
       this.selectedNote = newNote;
+    },
+    deleteNote: function() {
+      var index = this.notes.indexOf(this.selectedNote);
+      if (index !== -1) {
+        this.notes.splice(index, 1);
+        if (this.notes.length > 0) {
+          this.selectedNote = this.notes[0];
+        } else {
+          this.selectedNote = {};
+        }
+      }
     }
   },
   components: {
