@@ -1,7 +1,7 @@
 <template>
   <div class="toolbar">
     <button class="toolbar-button" v-on:click="clickNew">New</button>
-    <button class="toolbar-button">Delete</button>
+    <button class="toolbar-button" v-on:click="clickDelete">Delete</button>
     <input class="toolbar-search" type="text" placeholder="Search...">
   </div>
 </template>
@@ -12,6 +12,9 @@ export default {
   methods: {
     clickNew: function() {
       this.$emit('clickNew');
+    },
+    clickDelete: function() {
+      this.$emit('clickDelete');
     }
   }
 };
