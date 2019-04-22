@@ -4,7 +4,10 @@
       v-bind:selectedNote="selectedNote"
       v-on:selectNote="selectNote">
     </note-selectors>
-    <note-editor v-bind:selectedNote="selectedNote"></note-editor>
+    <note-editor 
+    v-bind:selectedNote="selectedNote"
+    v-on:inputNoteEditor="inputNoteEditor"
+    ></note-editor>
   </div>
 </template>
 
@@ -17,6 +20,9 @@ export default {
   methods: {
     selectNote: function(note) {
       this.$emit('selectNote', note);
+    },
+    inputNoteEditor: function(body) {
+      this.$emit('inputNoteEditor', body);
     }
   },
   components: {
