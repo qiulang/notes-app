@@ -4,7 +4,7 @@
       v-bind:selectedNote="selectedNote"
       v-on:selectNote="selectNote">
     </note-selectors>
-    <note-editor></note-editor>
+    <note-editor>v-bind:selectedNote="selectedNote"</note-editor>
   </div>
 </template>
 
