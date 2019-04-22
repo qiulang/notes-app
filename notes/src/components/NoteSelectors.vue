@@ -15,17 +15,10 @@
 import NoteSelector from './NoteSelector';
 export default {
   name: 'note-selectors',
-  props: ['notes', 'selectedNote'],
+  props: ['notes', 'selectedNote','transformedNotes'],
   methods: {
     selectNote: function(note) {
       this.$emit('selectNote', note);
-    }
-  },
-  computed: {
-    transformedNotes: function() {
-      return this.notes.slice().sort(function(a, b) {
-        return b.timestamp - a.timestamp;
-      });
     }
   },
   components: {

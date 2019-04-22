@@ -4,7 +4,9 @@
       v-on:clickDelete="deleteNote"
     >
     </toolbar>
-    <note-container v-bind:notes="notes"
+    <note-container 
+      v-bind:notes="notes"
+      v-bind:transformedNotes="transformedNotes"
       v-bind:selectedNote="selectedNote"
       v-on:selectNote="selectNote"
       v-on:inputNoteEditor="updateSelectedNote"
@@ -51,12 +53,19 @@ export default {
       var index = this.notes.indexOf(this.selectedNote);
       if (index !== -1) {
         this.notes.splice(index, 1);
-        if (this.notes.length > 0) {
-          this.selectedNote = this.notes[0];
+        if (this.transformedNotes.length > 0) {
+          this.selectedNote = this.transformedNotes[0];
         } else {
           this.selectedNote = {};
         }
       }
+    },
+  },
+  computed: {
+    transformedNotes: function() {
+      return this.notes.slice().sort(function(a, b) {
+        return b.timestamp - a.timestamp;
+      });
     }
   },
   components: {
