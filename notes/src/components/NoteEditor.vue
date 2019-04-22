@@ -1,8 +1,9 @@
 <template>
   <div class="note-editor">
     <p class="note-editor-info">{{ selectedNote.timestamp | formatTimestamp }}</p>
-    <textarea class="note-editor-input">
+    <textarea class="note-editor-input"
       v-bind:value="selectedNote.body"
+    >
     </textarea>
   </div>
 </template>

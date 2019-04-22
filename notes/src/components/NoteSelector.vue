@@ -18,7 +18,10 @@ export default {
       } else {
         return body;
       }
-    }
+    },
+    // formatTimestamp: function(timestamp) {
+    //   return new Date(timestamp).toUTCString();
+    // }
   },
   props: ['note', 'selectedNote'],
 };
