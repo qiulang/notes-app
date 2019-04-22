@@ -3,7 +3,9 @@
     <note-selector
       v-for="note in transformedNotes"
       v-bind:note="note"
+      v-bind:selectedNote="selectedNote"
       v-bind:key="note.id"
+      v-on:click.native="selectNote(note)"
     >
     </note-selector>
   </div>
@@ -13,7 +15,12 @@
 import NoteSelector from './NoteSelector';
 export default {
   name: 'note-selectors',
-  props: ['notes'],
+  props: ['notes', 'selectedNote'],
+  methods: {
+    selectNote: function(note) {
+      this.$emit('selectNote', note);
+    }
+  },
   computed: {
     transformedNotes: function() {
       return this.notes.slice().sort(function(a, b) {
