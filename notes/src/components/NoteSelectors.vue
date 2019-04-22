@@ -1,7 +1,7 @@
 <template>
   <div class="note-selectors">
     <note-selector
-      v-for="note in notes"
+      v-for="note in transformedNotes"
       v-bind:note="note"
       v-bind:key="note.id"
     >
@@ -14,6 +14,13 @@ import NoteSelector from './NoteSelector';
 export default {
   name: 'note-selectors',
   props: ['notes'],
+  computed: {
+    transformedNotes: function() {
+      return this.notes.slice().sort(function(a, b) {
+        return b.timestamp - a.timestamp;
+      });
+    }
+  },
   components: {
     NoteSelector
   }

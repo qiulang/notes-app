@@ -26,3 +26,9 @@ Now that things are broken into components, we have to make some choices when it
 
 
 There definitely is a price to pay for breaking things into components — maintaining strong boundaries means you must put in more effort to pass information across said boundaries. 
+
+
+
+### Use computed properties and filters to sort and format notes
+
+Right now we have the `<note-selector>` component responsible for title and timestamp formatting, and the `<note-selectors>` parent component responsible for sorting. 
