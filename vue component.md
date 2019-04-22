@@ -62,3 +62,6 @@ v-on:click.native="selectNote(note)"
 
 
 子组件不能跳过父组件直接给祖父组件发消息。
+
+
+

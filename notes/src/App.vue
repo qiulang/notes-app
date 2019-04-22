@@ -2,6 +2,8 @@
   <div id="app">
     <toolbar v-on:clickNew="createNote"
       v-on:clickDelete="deleteNote"
+      v-bind:searchNoteText="searchNoteText"
+      v-on:inputSearchNoteText="updateSearch"
     >
     </toolbar>
     <note-container 
@@ -29,7 +31,8 @@ export default {
     ];
     return {
       notes: initialNotes,
-      selectedNote: initialNotes[0]
+      selectedNote: initialNotes[0],
+      searchNoteText: ""
     };
   },
   methods: {
@@ -60,12 +63,24 @@ export default {
         }
       }
     },
+    updateSearch: function(newSearchText) {
+      this.searchNoteText = newSearchText;
+      if (this.transformedNotes.length === 0) {
+        this.selectedNote = {};
+      } else if (this.transformedNotes.indexOf(this.selectedNote) === -1) {
+        this.selectedNote = this.transformedNotes[0];
+      }
+    }
   },
   computed: {
     transformedNotes: function() {
-      return this.notes.slice().sort(function(a, b) {
-        return b.timestamp - a.timestamp;
-      });
+      return this.notes
+        .filter(function(note) {
+          return note.body.toLowerCase().indexOf(this.searchNoteText.toLowerCase()) !== -1;
+        }.bind(this))
+        .sort(function(a, b) {
+          return b.timestamp - a.timestamp;
+        });
     }
   },
   components: {
