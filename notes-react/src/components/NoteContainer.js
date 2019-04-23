@@ -4,6 +4,9 @@ import NoteEditor from "./NoteEditor";
 
 class NoteContainer extends Component {
   render() {
+    const selectedNote = this.props.notes.find(
+      note => note.id === this.props.selectedNoteId
+    );
     return (
       <div className="note-container">
         <NoteSelectors
@@ -11,7 +14,10 @@ class NoteContainer extends Component {
           selectedNoteId={this.props.selectedNoteId}
           onClickNote={this.props.onClickNote}
         />
-        <NoteEditor />
+        <NoteEditor
+          selectedNote={selectedNote}
+          onNoteEditorChange={this.props.onNoteEditorChange}
+        />
       </div>
     );
   }

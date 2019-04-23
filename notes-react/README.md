@@ -48,3 +48,8 @@ Unlike Vue.js, React doesn’t provide special mechanisms for things like comput
 - We are binding another new prop to the child `<NoteContainer>`component called `onClickNote`, which is set to the current component’s `handleClickNote` method we defined earlier. This is also different from Vue.js — there is no special notion of event emitters and listeners in React, you simply pass functions as part of the regular `props` which the child will call when appropriate.
 
 It’s a bit different than Vue.js’ component model — in Vue.js, each component can only pass emit and listen to events from its direct child and direct parent. In React, you don’t emit events, instead you pass functions (which can belong to any component) in `props`, which means the function can be called by a child, grandchild, etc. 
+
+
+
+### Edit the selected note on editor input
+
