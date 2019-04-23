@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 class App extends Component {
   render() {
@@ -9,7 +9,11 @@ class App extends Component {
         <div className="toolbar">
           <button className="toolbar-button">New</button>
           <button className="toolbar-button">Delete</button>
-          <input className="toolbar-search" type="text" placeholder="Search..."></input>
+          <input
+            className="toolbar-search"
+            type="text"
+            placeholder="Search..."
+          />
         </div>
         <div className="note-container">
           <div className="note-selectors">
@@ -28,10 +32,10 @@ class App extends Component {
           </div>
           <div className="note-editor">
             <p className="note-editor-info">Timestamp here...</p>
-            <textarea className="note-editor-input"></textarea>
+            <textarea className="note-editor-input" />
           </div>
         </div>
-      </div>      
+      </div>
     );
   }
 }
