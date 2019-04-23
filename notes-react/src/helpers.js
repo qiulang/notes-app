@@ -12,3 +12,7 @@ export function formatTitle(body) {
 export function formatTimestamp(timestamp) {
   return new Date(timestamp).toUTCString();
 }
+
+export function transformNotes(notes) {
+  return notes.slice().sort((a, b) => b.timestamp - a.timestamp);
+}

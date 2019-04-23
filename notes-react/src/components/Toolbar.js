@@ -7,7 +7,9 @@ class Toolbar extends Component {
         <button className="toolbar-button" onClick={this.props.onNewNote}>
           New
         </button>
-        <button className="toolbar-button">Delete</button>
+        <button className="toolbar-button" onClick={this.props.onDeleteNote}>
+          Delete
+        </button>
         <input className="toolbar-search" type="text" placeholder="Search..." />
       </div>
     );

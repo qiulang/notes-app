@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Toolbar from "./components/Toolbar";
 import NoteContainer from "./components/NoteContainer";
+import { transformNotes } from "./helpers";
 import "./App.css";
 
 class App extends Component {
@@ -45,10 +46,26 @@ class App extends Component {
     });
   };
 
+  handleDeleteNote = () => {
+    const newNotes = this.state.notes.filter(
+      note => note.id !== this.state.selectedNoteId
+    );
+    const transformedNotes = transformNotes(newNotes);
+    const newSelectedNoteId =
+      transformedNotes.length > 0 ? transformedNotes[0].id : null;
+    this.setState({
+      notes: newNotes,
+      selectedNoteId: newSelectedNoteId
+    });
+  };
+
   render() {
     return (
       <div id="app">
-        <Toolbar onNewNote={this.handleNewNote} />
+        <Toolbar
+          onNewNote={this.handleNewNote}
+          onDeleteNote={this.handleDeleteNote}
+        />
         <NoteContainer
           notes={this.state.notes}
           selectedNoteId={this.state.selectedNoteId}
