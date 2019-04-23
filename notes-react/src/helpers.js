@@ -13,6 +13,10 @@ export function formatTimestamp(timestamp) {
   return new Date(timestamp).toUTCString();
 }
 
-export function transformNotes(notes) {
-  return notes.slice().sort((a, b) => b.timestamp - a.timestamp);
+export function transformNotes(notes, searchText) {
+  return notes
+    .filter(
+      note => note.body.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
+    )
+    .sort((a, b) => b.timestamp - a.timestamp);
 }

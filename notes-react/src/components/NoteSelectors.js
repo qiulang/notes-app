@@ -4,7 +4,11 @@ import { transformNotes } from "../helpers";
 
 class NoteSelectors extends Component {
   render() {
-    const noteSelectors = transformNotes(this.props.notes).map(note => (
+    const transformedNotes = transformNotes(
+      this.props.notes,
+      this.props.searchText
+    );
+    const noteSelectors = transformedNotes.map(note => (
       <NoteSelector
         key={note.id}
         body={note.body}
