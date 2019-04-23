@@ -11,14 +11,22 @@ class App extends Component {
         { id: 1, body: "This is a first test", timestamp: Date.now() },
         { id: 2, body: "This is a second test", timestamp: Date.now() },
         { id: 3, body: "This is a third test", timestamp: Date.now() }
-      ]
+      ],
+      selectedNoteId: 1
     };
   }
+  handleClickNote = id => {
+    this.setState({ selectedNoteId: id });
+  };
   render() {
     return (
       <div id="app">
         <Toolbar />
-        <NoteContainer notes={this.state.notes} />
+        <NoteContainer
+          notes={this.state.notes}
+          selectedNoteId={this.state.selectedNoteId}
+          onClickNote={this.handleClickNote}
+        />
       </div>
     );
   }
