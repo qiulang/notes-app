@@ -1,23 +1,30 @@
-/* FLEXBOX-BASED LAYOUT */
+/* GRID-BASED LAYOUT */
 body {
+  display: grid;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  grid-template-columns: 200px 1fr 150px;
+  grid-template-rows: min-content 1fr min-content;
 }
-.container {
-  display: flex;
-  flex: 1;
-}
-main {
-  flex: 1;
-  padding: 0 20px;
+header {
+  grid-row: 1;
+  grid-column: 1 / 4;
 }
 nav {
-  flex: 0 0 180px;
+  grid-row: 2;
+  grid-column: 1 / 2;
   padding: 0 10px;
-  order: -1;
+}
+main {
+  grid-row: 2;
+  grid-column: 2 / 3;
+  padding: 0 20px;
 }
 aside {
-  flex: 0 0 130px;
+  grid-row: 2;
+  grid-column: 3 / 4;
   padding: 0 10px;
+}
+footer {
+  grid-row: 3;
+  grid-column: 1 / 4;
 }
