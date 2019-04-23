@@ -31,3 +31,9 @@ Note the change in terminology — this time `notes` is referred to using `p
 
 
 React doesn’t provide a special mechanism to loop through data — instead we’re using the built-in array `map` function to create an array of `<NoteSelector>` components, stored in the variable `noteSelectors` and rendered in the JSX.
+
+
+
+### Use functions to sort and format notes
+
+Unlike Vue.js, React doesn’t provide special mechanisms for things like computed properties and filters. Instead, you simply write functions as needed.
