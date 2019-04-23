@@ -6,7 +6,7 @@ class NoteContainer extends Component {
   render() {
     return (
       <div className="note-container">
-        <NoteSelectors />
+        <NoteSelectors notes={this.props.notes} />
         <NoteEditor />
       </div>
     );
