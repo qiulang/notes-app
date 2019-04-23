@@ -32,10 +32,23 @@ class App extends Component {
     });
     this.setState({ notes: newNotes });
   };
+
+  handleNewNote = () => {
+    const newNote = {
+      id: Date.now(),
+      body: "",
+      timestamp: Date.now()
+    };
+    this.setState({
+      notes: this.state.notes.concat([newNote]),
+      selectedNoteId: newNote.id
+    });
+  };
+
   render() {
     return (
       <div id="app">
-        <Toolbar />
+        <Toolbar onNewNote={this.handleNewNote} />
         <NoteContainer
           notes={this.state.notes}
           selectedNoteId={this.state.selectedNoteId}
