@@ -1,8 +1,5 @@
 import React, { Component } from "react";
-
-function formatTimestamp(timestamp) {
-  return new Date(timestamp).toUTCString();
-}
+import { formatTimestamp } from "../helpers";
 
 class NoteEditor extends Component {
   handleChange = event => {

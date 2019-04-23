@@ -1,19 +1,5 @@
 import React, { Component } from "react";
-
-function formatTitle(body) {
-  var maxLength = 20;
-  if (body.length > maxLength) {
-    return body.substring(0, maxLength - 3) + "...";
-  } else if (body.length === 0) {
-    return "New note";
-  } else {
-    return body;
-  }
-}
-
-function formatTimestamp(timestamp) {
-  return new Date(timestamp).toUTCString();
-}
+import { formatTitle, formatTimestamp } from "../helpers";
 
 class NoteSelector extends Component {
   handleClickNote = () => {
