@@ -54,3 +54,32 @@ The same Vue.js approach, this time with components
 
 A virtual DOM based component approach**Pros**: Small API surface. Immutable state improves simplicity. Increased reusability and simplicity with components.
 **Cons**: Requires complex build step. Harder to learn with heavy use of advanced and experimental JS features. Functional approach in JS requires particular care.
+
+
+
+
+
+### Afterthought
+
+
+
+### Improving maintainability with templates and components
+
+Building HTML with templates on the server is a solution that has been the de facto standard for quite some time.  If you were already planning on working with servers and databases, this is a natural fit. But if you were just interested in writing HTML on the frontend, this is quite honestly a huge barrier to entry.
+
+
+
+Web components were first introduced in 2011 as a completely different approach to solving the maintainability issues of HTML. Web components are built on the **client** as opposed to the **server**, which removes the barrier of having to learn a server-side programming language and web framework just to write maintainable HTML.
+
+
+
+By the time it became clear that the HTML web component specification wasn’t going to be implemented anytime soon.
+
+This is the promise of modern JavaScript frameworks — your job as a programmer is to define data and the ways it gets transformed. The framework’s job is to manage and manipulate the DOM under the hood.
+
+
+
+### css mess
+
+remains to be solved
+
